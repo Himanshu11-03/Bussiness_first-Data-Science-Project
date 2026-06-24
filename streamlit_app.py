@@ -33,21 +33,14 @@ overtime = st.selectbox(
 overtime = 1 if overtime=="Yes" else 0
 
 if st.button("Predict"):
-
-    sample = np.array([
-        [age,
-         income,
-         years,
-         overtime]
-    ])
-
+    # 1. Combine your inputs into a 2D array/list
+    sample = np.array([[age, income, years, overtime]])
+    
+    # 2. Make the prediction
     prediction = model.predict(sample)
-
-    if prediction[0]==1:
-        st.error(
-            "Employee may leave."
-        )
+    
+    # 3. Display the result
+    if prediction[0] == 1:
+        st.error("The employee is likely to leave.")
     else:
-        st.success(
-            "Employee likely to stay."
-        )
+        st.success("The employee is likely to stay.")
