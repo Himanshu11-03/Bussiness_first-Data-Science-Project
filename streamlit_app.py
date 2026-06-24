@@ -43,7 +43,7 @@ if st.button("Predict"):
     prediction = model.predict(sample)
     
     # 3. Display the result
-    if prediction[0] == 1:
+    if prediction[0] == 0.5:
         st.error("The employee is likely to leave.")
     else:
         st.success("The employee is likely to stay.")
