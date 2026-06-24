@@ -34,7 +34,8 @@ overtime = 1 if overtime=="Yes" else 0
 
 if st.button("Predict"):
     # 1. Combine your inputs into a 2D array/list
-    sample = np.array([[age, income, years, overtime]])
+    # You would need to provide the expected number of elements
+    sample = np.array([[age, income, years, overtime, default_val5, default_val6, ...]])
     
     # 2. Make the prediction
     prediction = model.predict(sample)
