@@ -33,9 +33,11 @@ overtime = st.selectbox(
 overtime = 1 if overtime=="Yes" else 0
 
 if st.button("Predict"):
-    # 1. Combine your inputs into a 2D array/list
-    # You would need to provide the expected number of elements
-    sample = np.array([[age, income, years, overtime, default_val5, default_val6, ...]])
+    # 1. Combine your 4 user inputs and pad the remaining 26 features with 0
+    base_features = [age, income, years, overtime]
+    extra_features = [0] * 26  # Creates 26 zeros to fill the rest of the 30 features
+    
+    sample = np.array([base_features + extra_features])
     
     # 2. Make the prediction
     prediction = model.predict(sample)
